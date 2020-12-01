@@ -16,4 +16,8 @@ public interface EmployeeService {
     RestResult searchByEmployeeQuery(EmployeeQuery employeeQuery);
 
     Integer save(EmployeeInfo employeeInfo);
+
+    int updateTypeEnabled(Long id);
+
+    int updateTypeDisabled(Long id);
 }

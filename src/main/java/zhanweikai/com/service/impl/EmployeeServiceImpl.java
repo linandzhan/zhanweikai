@@ -56,6 +56,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Integer save(EmployeeInfo employeeInfo) {
+        EmployeeQuery employeeQuery = new EmployeeQuery();
+        employeeQuery.setUsername(employeeInfo.getUsername());
+        Long count = employeeMapper.countByEmployeeQuery(employeeQuery);
+        if(count > 0) {
+            return 0;
+        }
+
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeInfo,employee);
 //        System.out.println(employee);
@@ -67,6 +74,25 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return i;
     }
+
+    @Override
+    public int updateTypeEnabled(Long id) {
+        Employee employee = new Employee();
+        employee.setId(id);
+        employee.setType("启用");
+        int i = employeeMapper.updateByPrimaryKeySelective(employee);
+        return i;
+    }
+
+    @Override
+    public int updateTypeDisabled(Long id) {
+        Employee employee = new Employee();
+        employee.setId(id);
+        employee.setType("禁用");
+        int i = employeeMapper.updateByPrimaryKeySelective(employee);
+        return i;
+    }
+
 
 //    @Override
 //    public Employee selectEmployeeByNameAndPassword(String username, String password) {

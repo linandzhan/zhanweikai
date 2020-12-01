@@ -141,7 +141,7 @@
 
   <select id="selectByEmployeeQuery" parameterType="zhanweikai.com.vo.EmployeeQuery" resultType="zhanweikai.com.vo.EmployeeDTO">
     select
-    username, phone, type
+    id,username, phone, type
     from employee
     <where>
       <choose>

@@ -37,7 +37,10 @@ public class EmployeeController {
         if(employee == null){
             RestResult restResult = RestResult.error(400, "密码或用户名错误");
             return restResult;
-        }else{
+        }else if("禁用".equals(employee.getType())){
+            return RestResult.error(201,"账号已被禁用");
+        }
+        else{
             RestResult restResult = RestResult.success();
             restResult.put("employee",employee);
             restResult.put("message","返回成功");
@@ -66,7 +69,33 @@ public class EmployeeController {
       if(result > 0){
           return  RestResult.success("插入成功");
       }
-        return RestResult.error(400,"插入失败");
+        return RestResult.error(201,"插入失败，可能用户名已经存在");
+    }
+
+
+    @ApiOperation(value = "员工账号启用")
+    @ApiImplicitParam(name = "longMap", value = "员工id")
+    @PostMapping("/api/employee/enable")
+    public RestResult enabled(@RequestBody Map<String,Long> longMap){
+        Long id = longMap.get("id");
+        int result = employeeService.updateTypeEnabled(id);
+            if(result > 0){
+                return  RestResult.success("已启用");
+            }
+        return RestResult.error(400,"启用失败");
+    }
+
+
+    @ApiOperation(value = "员工账号禁用")
+    @ApiImplicitParam(name = "longMap", value = "员工id")
+    @PostMapping("/api/employee/disable")
+    public RestResult disabled(@RequestBody Map<String,Long> longMap){
+        Long id = longMap.get("id");
+        int result = employeeService.updateTypeDisabled(id);
+        if(result > 0){
+            return  RestResult.success("已禁用");
+        }
+        return RestResult.error(400,"禁用失败");
     }
 
 
