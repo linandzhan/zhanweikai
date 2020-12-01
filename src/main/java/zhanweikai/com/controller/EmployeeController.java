@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.pojo.Employee;
 import zhanweikai.com.service.EmployeeService;
+import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 
 import javax.annotation.Resource;
@@ -52,6 +53,20 @@ public class EmployeeController {
         EmployeeQuery employeeQuery = employeeQueryMap.get("employeeQuery");
 
         return employeeService.searchByEmployeeQuery(employeeQuery);
+    }
+
+
+
+    @ApiOperation(value = "员工添加")
+    @ApiImplicitParam(name = "employeeQuery", value = "员工添加信息")
+    @PostMapping("/api/employee/save")
+    public RestResult save(@RequestBody Map<String, EmployeeInfo> employeeInfoMap){
+        EmployeeInfo employeeInfo = employeeInfoMap.get("employeeInfo");
+      Integer result = employeeService.save(employeeInfo);
+      if(result > 0){
+          return  RestResult.success("插入成功");
+      }
+        return RestResult.error(400,"插入失败");
     }
 
 

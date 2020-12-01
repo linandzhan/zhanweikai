@@ -1,12 +1,14 @@
 package zhanweikai.com.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.dao.EmployeeMapper;
 import zhanweikai.com.pojo.Employee;
 import zhanweikai.com.service.EmployeeService;
+import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 import zhanweikai.com.vo.ListVo;
 
@@ -50,6 +52,20 @@ public class EmployeeServiceImpl implements EmployeeService {
           return RestResult.success("查找成功",listVo);
       }
 
+    }
+
+    @Override
+    public Integer save(EmployeeInfo employeeInfo) {
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeInfo,employee);
+//        System.out.println(employee);
+        employee.setType("启用");  //默认启用
+
+
+        int i = employeeMapper.insertSelective(employee);
+
+
+        return i;
     }
 
 //    @Override

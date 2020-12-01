@@ -2,6 +2,7 @@ package zhanweikai.com.service;
 
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.pojo.Employee;
+import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 
 public interface EmployeeService {
@@ -13,4 +14,6 @@ public interface EmployeeService {
     Employee selectEmployeeByNameAndPassword(String username, String password);
 
     RestResult searchByEmployeeQuery(EmployeeQuery employeeQuery);
+
+    Integer save(EmployeeInfo employeeInfo);
 }

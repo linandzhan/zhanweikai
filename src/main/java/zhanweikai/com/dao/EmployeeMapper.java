@@ -2,6 +2,7 @@ package zhanweikai.com.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import zhanweikai.com.pojo.Employee;
+import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 
 import java.util.List;
@@ -27,4 +28,6 @@ public interface EmployeeMapper {
     List<Employee> selectByEmployeeQuery(EmployeeQuery employeeQuery);
 
     Long countByEmployeeQuery(EmployeeQuery employeeQuery);
+
+    int insertEmployeeInfo(EmployeeInfo employeeInfo);
 }

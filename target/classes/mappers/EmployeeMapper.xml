@@ -123,6 +123,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
   <select id="selectEmployeeByName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -182,4 +191,13 @@
     from employee
     where username = #{username} and password = #{password}
   </select>
+
+  <insert id="insertEmployeeInfo" parameterType="zhanweikai.com.vo.EmployeeInfo">
+    insert into employee (id, username, password,
+      phone, type, role,
+      image)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR},
+      #{image,jdbcType=VARCHAR})
+  </insert>
 </mapper>
