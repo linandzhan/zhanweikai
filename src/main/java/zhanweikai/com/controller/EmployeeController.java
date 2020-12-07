@@ -18,7 +18,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 @RestController
-@Api(tags = "处理用户登录的controller")
+@Api(tags = "管理员管理")
 public class EmployeeController {
     @Resource
     private EmployeeService employeeService;
