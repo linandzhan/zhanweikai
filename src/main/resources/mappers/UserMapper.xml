@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zhanweikai.com.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="zhanweikai.com.pojo.User">
+    <constructor>
+      <idArg column="user_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="roles" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creat_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="zhanweikai.com.pojo.User">
+    <constructor>
+      <idArg column="user_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="roles" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creat_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="user_name" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, password, roles, status, phone, creat_time
+  </sql>
+  <sql id="Blob_Column_List">
+    user_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from users
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from users
+    where user_id = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="zhanweikai.com.pojo.User">
+    insert into users (user_id, password, roles, 
+      status, phone, creat_time, 
+      user_name)
+    values (#{userId,jdbcType=BIGINT}, #{password,jdbcType=VARCHAR}, #{roles,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{creatTime,jdbcType=TIMESTAMP}, 
+      #{userName,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zhanweikai.com.pojo.User">
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="roles != null">
+        roles,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="creatTime != null">
+        creat_time,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roles != null">
+        #{roles,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null">
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zhanweikai.com.pojo.User">
+    update users
+    <set>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roles != null">
+        roles = #{roles,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null">
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="zhanweikai.com.pojo.User">
+    update users
+    set password = #{password,jdbcType=VARCHAR},
+      roles = #{roles,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      user_name = #{userName,jdbcType=LONGVARCHAR}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zhanweikai.com.pojo.User">
+    update users
+    set password = #{password,jdbcType=VARCHAR},
+      roles = #{roles,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+</mapper>
