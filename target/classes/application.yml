@@ -23,3 +23,8 @@ spring:
 mybatis:
   mapper-locations: classpath:mappers/*.xml
   type-aliases-package: zhanweikai.com.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    延迟加载（优化查询）
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false

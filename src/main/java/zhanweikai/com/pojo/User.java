@@ -17,28 +17,7 @@ public class User {
 
     private String userName;
 
-    public User(Long userId, String password, String roles, String status, String phone, Date creatTime) {
-        this.userId = userId;
-        this.password = password;
-        this.roles = roles;
-        this.status = status;
-        this.phone = phone;
-        this.creatTime = creatTime;
-    }
-
-    public User(Long userId, String password, String roles, String status, String phone, Date creatTime, String userName) {
-        this.userId = userId;
-        this.password = password;
-        this.roles = roles;
-        this.status = status;
-        this.phone = phone;
-        this.creatTime = creatTime;
-        this.userName = userName;
-    }
-
-    public User() {
-        super();
-    }
+    private Double balance;
 
     public Long getUserId() {
         return userId;
@@ -53,7 +32,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
     public String getRoles() {
@@ -61,7 +40,7 @@ public class User {
     }
 
     public void setRoles(String roles) {
-        this.roles = roles == null ? null : roles.trim();
+        this.roles = roles;
     }
 
     public String getStatus() {
@@ -69,7 +48,7 @@ public class User {
     }
 
     public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+        this.status = status;
     }
 
     public String getPhone() {
@@ -77,7 +56,7 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public Date getCreatTime() {
@@ -93,6 +72,14 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+        this.userName = userName;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 }

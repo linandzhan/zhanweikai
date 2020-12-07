@@ -2,6 +2,10 @@ package zhanweikai.com.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import zhanweikai.com.pojo.User;
+import zhanweikai.com.vo.UserQueryDTO;
+
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Long userId);
@@ -17,4 +21,8 @@ public interface UserMapper {
     int updateByPrimaryKeyWithBLOBs(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> searchByPhoneAndName(UserQueryDTO userQueryDTO);
+
+    Long countByPhoneAndName(UserQueryDTO userQueryDTO);
 }
