@@ -30,4 +30,6 @@ public interface EmployeeMapper {
     Long countByEmployeeQuery(EmployeeQuery employeeQuery);
 
     int insertEmployeeInfo(EmployeeInfo employeeInfo);
+
+    Employee getByPrimaryKey(Long id);
 }

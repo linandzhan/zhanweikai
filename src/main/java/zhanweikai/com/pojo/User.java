@@ -1,19 +1,26 @@
 package zhanweikai.com.pojo;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class User {
+    public static final String LEVEL_MIDDLE ="middle";
+    public static final String LEVEL_LOW ="low";
+    public static final String LEVEL_HIGH ="high";
+
+
     private Long userId;
 
     private String password;
 
-    private String roles;
+    private String level;
 
     private String status;
 
     private String phone;
 
-    private Date creatTime;
+    private LocalDate creatTime;
 
     private String userName;
 
@@ -35,12 +42,12 @@ public class User {
         this.password = password;
     }
 
-    public String getRoles() {
-        return roles;
+    public String getLevel() {
+        return level;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getStatus() {
@@ -59,11 +66,11 @@ public class User {
         this.phone = phone;
     }
 
-    public Date getCreatTime() {
+    public LocalDate getCreatTime() {
         return creatTime;
     }
 
-    public void setCreatTime(Date creatTime) {
+    public void setCreatTime(LocalDate creatTime) {
         this.creatTime = creatTime;
     }
 

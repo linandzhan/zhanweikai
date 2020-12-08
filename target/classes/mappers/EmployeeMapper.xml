@@ -192,6 +192,11 @@
     where username = #{username} and password = #{password}
   </select>
 
+  <select id="getByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from employee
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
   <insert id="insertEmployeeInfo" parameterType="zhanweikai.com.vo.EmployeeInfo">
     insert into employee (id, username, password,
       phone, type, role,
@@ -200,4 +205,5 @@
       #{phone,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR},
       #{image,jdbcType=VARCHAR})
   </insert>
+
 </mapper>

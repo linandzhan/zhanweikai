@@ -48,4 +48,45 @@ public class UserController {
         return userService.searchByPhoneAndName(userQueryDTO);
     }
 
+
+    @ApiOperation(value = "用户启用")
+    @ApiImplicitParam(name = "userId", value = "用户id信息")
+    @PostMapping("/api/user/enable")
+    public RestResult enable(@RequestBody Map<String, Long> userId){
+        Long id = userId.get("id");
+        int  result = userService.updateTypeEnabled(id);
+        if(result > 0){
+            return RestResult.success("启用成功");
+        }else{
+            return RestResult.error(402,"启用失败");
+        }
+
+    }
+
+
+    @ApiOperation(value = "用户禁用")
+    @ApiImplicitParam(name = "userId", value = "用户id信息")
+    @PostMapping("/api/user/disable")
+    public RestResult disable(@RequestBody Map<String, Long> userId){
+        Long id = userId.get("id");
+        int  result = userService.updateTypeDisabled(id);
+        if(result > 0){
+            return RestResult.success("禁用成功");
+        }else{
+            return RestResult.error(402,"禁用成功");
+        }
+    }
+
+    @ApiOperation(value = "用户添加")
+    @ApiImplicitParam(name = "user", value = "用户信息")
+    @PostMapping("/api/user/save")
+    public RestResult save(@RequestBody Map<String, User> userInfo){
+        User user = userInfo.get("userInfo");
+        return  userService.save(user);
+    }
+
+
+
+
+
 }

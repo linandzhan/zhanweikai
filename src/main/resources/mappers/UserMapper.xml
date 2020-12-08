@@ -5,7 +5,7 @@
 <!--    <constructor>-->
 <!--      <idArg column="user_id" javaType="java.lang.Long" jdbcType="BIGINT" />-->
 <!--      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />-->
-<!--      <arg column="roles" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+<!--      <arg column="level" javaType="java.lang.String" jdbcType="VARCHAR" />-->
 <!--      <arg column="status" javaType="java.lang.String" jdbcType="VARCHAR" />-->
 <!--      <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR" />-->
 <!--      <arg column="creat_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />-->
@@ -15,7 +15,7 @@
 <!--    <constructor>-->
 <!--      <idArg column="user_id" javaType="java.lang.Long" jdbcType="BIGINT" />-->
 <!--      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />-->
-<!--      <arg column="roles" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+<!--      <arg column="level" javaType="java.lang.String" jdbcType="VARCHAR" />-->
 <!--      <arg column="status" javaType="java.lang.String" jdbcType="VARCHAR" />-->
 <!--      <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR" />-->
 <!--      <arg column="creat_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />-->
@@ -26,7 +26,7 @@
   <resultMap id="userMap" type="zhanweikai.com.pojo.User">
     <id property="userId" column="user_id"/>
     <result property="password" column="password"/>
-    <result property="roles" column="roles"/>
+    <result property="level" column="level"/>
     <result property="status" column="status"/>
     <result property="phone" column="phone"/>
     <result property="creatTime" column="creat_time"/>
@@ -36,7 +36,7 @@
 
 
   <sql id="Base_Column_List">
-    user_id,user_name, password, roles, status, phone, creat_time,balance
+    user_id,user_name, password, level, status, phone, creat_time,balance
   </sql>
 
 
@@ -55,10 +55,10 @@
     where user_id = #{userId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="zhanweikai.com.pojo.User">
-    insert into users (user_id, password, roles, 
+    insert into users (user_id, password, level, 
       status, phone, creat_time, 
       user_name)
-    values (#{userId,jdbcType=BIGINT}, #{password,jdbcType=VARCHAR}, #{roles,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=BIGINT}, #{password,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR}, 
       #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{creatTime,jdbcType=TIMESTAMP},
       #{userName,jdbcType=LONGVARCHAR})
   </insert>
@@ -71,8 +71,8 @@
       <if test="password != null">
         password,
       </if>
-      <if test="roles != null">
-        roles,
+      <if test="level != null">
+        level,
       </if>
       <if test="status != null">
         status,
@@ -86,6 +86,9 @@
       <if test="userName != null">
         user_name,
       </if>
+      <if test="balance != null">
+        balance,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -94,8 +97,8 @@
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="roles != null">
-        #{roles,jdbcType=VARCHAR},
+      <if test="level != null">
+        #{level,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
@@ -109,6 +112,9 @@
       <if test="userName != null">
         #{userName,jdbcType=LONGVARCHAR},
       </if>
+      <if test="balance != null">
+        #{balance,jdbcType=LONGVARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="zhanweikai.com.pojo.User">
@@ -117,8 +123,8 @@
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="roles != null">
-        roles = #{roles,jdbcType=VARCHAR},
+      <if test="level != null">
+        level = #{level,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
@@ -138,7 +144,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="zhanweikai.com.pojo.User">
     update users
     set password = #{password,jdbcType=VARCHAR},
-      roles = #{roles,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       creat_time = #{creatTime,jdbcType=TIMESTAMP},
@@ -148,7 +154,7 @@
   <update id="updateByPrimaryKey" parameterType="zhanweikai.com.pojo.User">
     update users
     set password = #{password,jdbcType=VARCHAR},
-      roles = #{roles,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       creat_time = #{creatTime,jdbcType=TIMESTAMP}
@@ -177,7 +183,7 @@
 
 
   <select id="searchByPhoneAndName" parameterType="zhanweikai.com.vo.UserQueryDTO" resultMap="userMap">
-    select user_id, user_name,phone,creat_time,balance,status from users
+    select user_id, user_name,phone,creat_time,balance,status,level from users
     <where>
       <choose>
         <when test="userName != null and userName != ''">

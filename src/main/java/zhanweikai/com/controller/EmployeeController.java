@@ -91,6 +91,10 @@ public class EmployeeController {
     @PostMapping("/api/employee/disable")
     public RestResult disabled(@RequestBody Map<String,Long> longMap){
         Long id = longMap.get("id");
+        Employee employee = employeeService.get(id);
+        if("1".equals(employee.getRole())){
+            return RestResult.error(400,"管理员账户不可禁用！");
+        }
         int result = employeeService.updateTypeDisabled(id);
         if(result > 0){
             return  RestResult.success("已禁用");

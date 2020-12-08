@@ -93,6 +93,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return i;
     }
 
+    @Override
+    public Employee get(Long id) {
+        return employeeMapper.getByPrimaryKey(id);
+    }
+
 
 //    @Override
 //    public Employee selectEmployeeByNameAndPassword(String username, String password) {

@@ -20,4 +20,6 @@ public interface EmployeeService {
     int updateTypeEnabled(Long id);
 
     int updateTypeDisabled(Long id);
+
+    Employee get(Long id);
 }
