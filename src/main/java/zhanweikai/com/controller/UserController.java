@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.pojo.User;
 import zhanweikai.com.service.UserService;
+import zhanweikai.com.vo.CulculateDTO;
 import zhanweikai.com.vo.EmployeeQuery;
 import zhanweikai.com.vo.Pageable;
 import zhanweikai.com.vo.UserQueryDTO;
@@ -83,6 +84,18 @@ public class UserController {
     public RestResult save(@RequestBody Map<String, User> userInfo){
         User user = userInfo.get("userInfo");
         return  userService.save(user);
+    }
+
+
+    @ApiOperation(value = "用户添加")
+    @ApiImplicitParam(name = "user", value = "用户信息")
+    @PostMapping("/api/user/culculateDiscount")
+    public RestResult culculate(@RequestBody Map<String, CulculateDTO> reduceInfo){
+        CulculateDTO info = reduceInfo.get("reduceInfo");
+        Long userId = info.getUserId();
+        Double reduceBalance = info.getReduceBalance();
+
+        return  userService.culculateReduce(userId,reduceBalance);
     }
 
 

@@ -7,6 +7,7 @@ import zhanweikai.com.dao.UserMapper;
 import zhanweikai.com.pojo.Employee;
 import zhanweikai.com.pojo.User;
 import zhanweikai.com.service.UserService;
+import zhanweikai.com.vo.CulculateDTO;
 import zhanweikai.com.vo.ListVo;
 import zhanweikai.com.vo.UserQueryDTO;
 
@@ -67,5 +68,29 @@ public class UserServiceImpl implements UserService {
         }else {
             return RestResult.error("添加失败");
         }
+    }
+
+    @Override
+    public RestResult culculateReduce(Long userId, Double reduceBalance) {
+        CulculateDTO culculateDTO = new CulculateDTO();
+        User user = userMapper.selectByPrimaryKey(userId);
+
+        String level = user.getLevel();
+        if(User.LEVEL_HIGH.equals(level)){
+            culculateDTO.setDiscount("7折");
+            double result = reduceBalance * 0.7;
+            culculateDTO.setActualBalance(result);
+        }else if(User.LEVEL_MIDDLE.equals(level)){
+            double result = reduceBalance * 0.8;
+            culculateDTO.setActualBalance(result);
+            culculateDTO.setDiscount("8折");
+        }else if(User.LEVEL_LOW.equals(level)){
+            double result = reduceBalance * 0.9;
+            culculateDTO.setActualBalance(result);
+            culculateDTO.setDiscount("9折");
+        }
+
+
+        return RestResult.success("计算成功",culculateDTO);
     }
 }

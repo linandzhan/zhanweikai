@@ -14,4 +14,6 @@ public interface UserService {
     int updateTypeDisabled(Long id);
 
     RestResult save(User user);
+
+    RestResult culculateReduce(Long userId, Double reduceBalance);
 }
