@@ -16,4 +16,8 @@ public interface UserService {
     RestResult save(User user);
 
     RestResult culculateReduce(Long userId, Double reduceBalance);
+
+    RestResult reduceBalance(Long id, Double actualBalance);
+
+    RestResult rechargeBalance(Long id, Double rechargeMoney);
 }

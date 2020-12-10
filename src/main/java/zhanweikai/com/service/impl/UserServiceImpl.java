@@ -93,4 +93,52 @@ public class UserServiceImpl implements UserService {
 
         return RestResult.success("计算成功",culculateDTO);
     }
+
+
+
+    @Override
+    public RestResult reduceBalance(Long id, Double actualBalance) {
+        User user = userMapper.selectBalanceByPrimaryKey(id);
+        if(user.getBalance() < actualBalance){
+            return RestResult.error(400,"余额不足以扣费");
+        }else if("1".equals(user.getStatus())){
+            return RestResult.error(400,"该用户已被禁用");
+        }
+        else{
+            user.setStatus(null);
+            user.setBalance(user.getBalance() - actualBalance);
+            int i = userMapper.updateByPrimaryKeySelective(user);
+            if(i > 0){
+                return RestResult.success("扣费成功");
+            }else {
+                return RestResult.error(400,"扣费失败");
+            }
+
+        }
+
+
+
+    }
+
+    @Override
+    public RestResult rechargeBalance(Long id, Double rechargeMoney) {
+        User user = userMapper.selectBalanceByPrimaryKey(id);
+        if("1".equals(user.getStatus())){
+            return RestResult.error(400,"该用户已被禁用");
+        }else if(rechargeMoney < 0){
+            return RestResult.error(400,"输入金额不对");
+        }else {
+            user.setStatus(null);
+            user.setBalance(user.getBalance() + rechargeMoney);
+            int i = userMapper.updateByPrimaryKeySelective(user);
+            if(i > 0){
+                return RestResult.success("充值成功");
+            }else {
+                return RestResult.error(400,"充值失败");
+            }
+        }
+
+
+
+    }
 }

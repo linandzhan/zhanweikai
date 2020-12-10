@@ -48,6 +48,16 @@
     from users
     where user_id = #{userId,jdbcType=BIGINT}
   </select>
+  <select id="selectBalanceByPrimaryKey" parameterType="java.lang.Long" resultMap="userMap">
+    select
+    user_id,
+    status,
+    balance
+    from users
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+
+
 
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
@@ -137,6 +147,9 @@
       </if>
       <if test="userName != null">
         user_name = #{userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where user_id = #{userId,jdbcType=BIGINT}

@@ -1,8 +1,10 @@
 package zhanweikai.com.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -96,6 +98,43 @@ public class UserController {
         Double reduceBalance = info.getReduceBalance();
 
         return  userService.culculateReduce(userId,reduceBalance);
+    }
+
+
+//    @ApiOperation(value = "用户添加")
+////    @ApiImplicitParam(name = "user", value = "用户信息")
+////    @PostMapping("/api/user/updateBalance")
+////    public RestResult updateBalance(@RequestBody Map<String, Double> actualBalanceInfo){
+////        Double actualBalance = actualBalanceInfo.get("actualBalance");
+////
+////
+////        return  null;
+////    }
+        @ApiOperation(value = "用户扣费")
+        @ApiImplicitParam(name = "user", value = "用户信息")
+        @PostMapping("/api/user/reduceBalance")
+        public RestResult reduceBalance(@RequestBody JSONObject jsonObject){
+            String actualBalance_ = (String)jsonObject.get("actualBalance");
+            String userId = (String) jsonObject.get("userId");
+            Long id = Long.parseLong(userId);
+            Double actualBalance = Double.parseDouble(actualBalance_);
+
+
+            return  userService.reduceBalance(id,actualBalance);
+        }
+
+
+    @ApiOperation(value = "用户充值")
+    @ApiImplicitParam(name = "user", value = "用户信息")
+    @PostMapping("/api/user/rechargeBalance")
+    public RestResult rechargeBalance(@RequestBody JSONObject jsonObject){
+        String rechargeMoney_ = (String)jsonObject.get("rechargeMoney");
+        String userId = (String) jsonObject.get("userId");
+        Long id = Long.parseLong(userId);
+        Double rechargeMoney = Double.parseDouble(rechargeMoney_);
+
+
+        return  userService.rechargeBalance(id,rechargeMoney);
     }
 
 

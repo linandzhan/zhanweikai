@@ -25,4 +25,6 @@ public interface UserMapper {
     List<User> searchByPhoneAndName(UserQueryDTO userQueryDTO);
 
     Long countByPhoneAndName(UserQueryDTO userQueryDTO);
+
+    User selectBalanceByPrimaryKey(Long userId);
 }
