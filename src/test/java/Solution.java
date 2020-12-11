@@ -1,3 +1,5 @@
+import lombok.SneakyThrows;
+
 import java.util.Arrays;
 
 public class Solution {
@@ -28,13 +30,17 @@ class Solution1{
     }
 
     public static void main(String[] args) {
-        int[] ints = {3,2,3,4};
+        int[] ints = {3,2,3,4,5,6};
   //      int i = removeDuplicates(ints);
         int i = largestPerimeter(ints);
 //        for (int anInt : ints) {
 //            System.out.println(anInt);
 //        }
-        System.out.println("这是i"+i);
+ //       System.out.println("这是i"+i);
+        test1(ints);
+//        for (int anInt : ints) {
+//            System.out.println(anInt);
+//        }
 
     }
 
@@ -61,6 +67,23 @@ class Solution1{
 
 
         return result[result.length-1];
+    }
+
+
+
+    public static void test1(int arr[]){
+
+        for (int i : arr) {
+
+            new Thread(new Runnable() {
+                @SneakyThrows
+                @Override
+                public void run() {
+                    Thread.sleep(i);
+                    System.out.println(i);
+                }
+            }).start();
+        }
     }
 
 
