@@ -21,6 +21,23 @@
     from employee
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+
+
+  <select id="findRoleByEmployee" parameterType="java.lang.Long" resultType="java.lang.String">
+
+    select url
+    from role_permission rp , permission p
+    where rp.permission_id = p.id
+    and role_id in (    select role_id from employee_role where employee_id =  #{id,jdbcType=BIGINT} )
+
+
+
+  </select>
+
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from employee
     where id = #{id,jdbcType=BIGINT}

@@ -7,16 +7,19 @@ import org.springframework.stereotype.Service;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.dao.EmployeeMapper;
 import zhanweikai.com.pojo.Employee;
+import zhanweikai.com.pojo.Role;
 import zhanweikai.com.service.EmployeeService;
 import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 import zhanweikai.com.vo.ListVo;
 
+import javax.annotation.Resource;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    @Autowired
+    @Resource
     EmployeeMapper employeeMapper;
 
 
@@ -96,6 +99,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee get(Long id) {
         return employeeMapper.getByPrimaryKey(id);
+    }
+
+    @Override
+    public Set<String> findRoleByEmployee(Long id) {
+
+        return employeeMapper.findRoleByEmployee(id);
     }
 
 

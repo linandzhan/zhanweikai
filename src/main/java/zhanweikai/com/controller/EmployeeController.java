@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import zhanweikai.com.annotation.RequiredPermission;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.pojo.Employee;
 import zhanweikai.com.service.EmployeeService;
@@ -14,6 +15,7 @@ import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
@@ -27,7 +29,7 @@ public class EmployeeController {
     @ApiOperation(value = "用户登录接口")
     @ApiImplicitParams({ @ApiImplicitParam(name = "username", value = "登录名"), @ApiImplicitParam(name = "password", value = "密码", required = true)})
     @PostMapping("/employee/login")
-    public RestResult login(@RequestBody Map<String,String> loginInfo ) throws UnsupportedEncodingException {
+    public RestResult login(@RequestBody Map<String,String> loginInfo , HttpServletRequest http) throws UnsupportedEncodingException {
         //Map<String,String> loginInfo
   //      Employee employee = employeeService.selectEmployeeByName(username);
         String username = loginInfo.get("username");
@@ -41,12 +43,14 @@ public class EmployeeController {
             return RestResult.error(201,"账号已被禁用");
         }
         else{
+            http.getSession().setAttribute("employee",employee);
             RestResult restResult = RestResult.success();
             restResult.put("employee",employee);
             restResult.put("message","返回成功");
             return  restResult;
         }
     }
+
 
 
     @ApiOperation(value = "员工查询")
@@ -59,7 +63,7 @@ public class EmployeeController {
     }
 
 
-
+    @RequiredPermission("employee:add")
     @ApiOperation(value = "员工添加")
     @ApiImplicitParam(name = "employeeQuery", value = "员工添加信息")
     @PostMapping("/api/employee/save")
@@ -72,7 +76,7 @@ public class EmployeeController {
         return RestResult.error(201,"插入失败，可能用户名已经存在");
     }
 
-
+    @RequiredPermission("employee:enable")
     @ApiOperation(value = "员工账号启用")
     @ApiImplicitParam(name = "longMap", value = "员工id")
     @PostMapping("/api/employee/enable")
@@ -85,7 +89,7 @@ public class EmployeeController {
         return RestResult.error(400,"启用失败");
     }
 
-
+    @RequiredPermission("employee:disable")
     @ApiOperation(value = "员工账号禁用")
     @ApiImplicitParam(name = "longMap", value = "员工id")
     @PostMapping("/api/employee/disable")

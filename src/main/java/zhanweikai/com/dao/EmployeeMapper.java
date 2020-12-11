@@ -2,10 +2,12 @@ package zhanweikai.com.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import zhanweikai.com.pojo.Employee;
+import zhanweikai.com.pojo.Role;
 import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 
 import java.util.List;
+import java.util.Set;
 
 @Mapper
 public interface EmployeeMapper {
@@ -32,4 +34,6 @@ public interface EmployeeMapper {
     int insertEmployeeInfo(EmployeeInfo employeeInfo);
 
     Employee getByPrimaryKey(Long id);
+
+    Set<String> findRoleByEmployee(Long id);
 }

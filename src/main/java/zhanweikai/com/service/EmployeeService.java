@@ -2,8 +2,12 @@ package zhanweikai.com.service;
 
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.pojo.Employee;
+import zhanweikai.com.pojo.Role;
 import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
+
+import java.util.List;
+import java.util.Set;
 
 public interface EmployeeService {
 
@@ -22,4 +26,6 @@ public interface EmployeeService {
     int updateTypeDisabled(Long id);
 
     Employee get(Long id);
+
+    Set<String> findRoleByEmployee(Long id);
 }

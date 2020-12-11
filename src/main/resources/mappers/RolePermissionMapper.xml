@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zhanweikai.com.dao.RolePermissionMapper">
+
+
+
+    <select id="findPermissionByRoleId" parameterType="java.util.List" resultType="java.lang.String">
+
+    select url
+    from role_permission rp , permission p
+    where rp.permission_id = p.id
+        <if test="roleIds != null and roleIds.size != 0">
+            and role_id in
+            <foreach close=")" collection="roleIds" item="id" open="(" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </select>
+
+
+
+</mapper>
