@@ -20,6 +20,7 @@ import zhanweikai.com.service.*;
 
 
 import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashSet;
@@ -51,8 +52,20 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         }
         //  null == request.getHeader("x-requested-with") TODO 暂时用这个来判断是否为ajax请求
         // 如果没有权限 则抛403异常 springboot会处理，跳转到 /error/403 页面
-        response.sendError(HttpStatus.FORBIDDEN.value(), "无权限");
-        return false;
+//        response.sendError(HttpStatus.FORBIDDEN.value(), "无权限");
+
+//        return false;
+       // response.getWriter();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+//        response.getWriter().write("无权限");
+//        response.getWriter().flush();
+
+        ServletOutputStream output = response.getOutputStream();
+        output.write(("no-permission").getBytes());
+        output.flush();
+
+        return  false;
     }
 
     /**
@@ -87,7 +100,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 }
                 return permissionSet.contains(requiredPermission.value());
 
-//                permissionSet = rolePermissionService.findPermissionByRolesId(roleIds);
+
 //                return true;
             }
         }

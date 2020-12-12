@@ -24,16 +24,18 @@
 
 
 
+<!--查询该用户中所能访问到的url-->
   <select id="findRoleByEmployee" parameterType="java.lang.Long" resultType="java.lang.String">
 
     select url
     from role_permission rp , permission p
     where rp.permission_id = p.id
-    and role_id in (    select role_id from employee_role where employee_id =  #{id,jdbcType=BIGINT} )
+    and role_id in ( select role_id from employee_role where employee_id =  #{id,jdbcType=BIGINT} )
 
 
 
   </select>
+
 
 
 
