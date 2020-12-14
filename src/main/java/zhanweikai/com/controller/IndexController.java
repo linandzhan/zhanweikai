@@ -47,6 +47,7 @@ public class IndexController {
     public RestResult search(@RequestBody Map<String, Long> areaId){
         Long id = areaId.get("id");
         Area area = areaService.findById(id);
+        System.out.println(area.getRentalPrice());
   //      Employee employeeId = area.getEmployeeId();
         return null;
     }

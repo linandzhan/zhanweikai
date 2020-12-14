@@ -8,12 +8,10 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Orders {
 
-    private Long userId;
+    private Long orderId;
 
     /**
      * 订单创建时间
@@ -51,11 +49,116 @@ public class Orders {
     private Double areaAmont;
 
 
-    private Customer customer;
+//    private Customer customer;
+
+    /**
+     * 所属场地
+     */
+    private Area areaId;
+
+    /**
+     * 哪个员工创建的订单
+     */
+    private Employee employeeId;
+    /**
+     * 客户
+     */
+    private User userId;
 
 
-    private Area area;
+    public Long getOrderId() {
+        return orderId;
+    }
 
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
 
-    private Employee employee;
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public LocalDateTime getStartChartered() {
+        return startChartered;
+    }
+
+    public void setStartChartered(LocalDateTime startChartered) {
+        this.startChartered = startChartered;
+    }
+
+    public LocalDateTime getEndChartered() {
+        return endChartered;
+    }
+
+    public void setEndChartered(LocalDateTime endChartered) {
+        this.endChartered = endChartered;
+    }
+
+    public Double getPaymentAmount() {
+        return paymentAmount;
+    }
+
+    public void setPaymentAmount(Double paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
+
+    public Double getDiscountAmount() {
+        return discountAmount;
+    }
+
+    public void setDiscountAmount(Double discountAmount) {
+        this.discountAmount = discountAmount;
+    }
+
+    public Double getAreaAmont() {
+        return areaAmont;
+    }
+
+    public void setAreaAmont(Double areaAmont) {
+        this.areaAmont = areaAmont;
+    }
+
+    public Area getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Area areaId) {
+        this.areaId = areaId;
+    }
+
+    public Employee getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Employee employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "orderId=" + orderId +
+                ", createTime=" + createTime +
+                ", startChartered=" + startChartered +
+                ", endChartered=" + endChartered +
+                ", paymentAmount=" + paymentAmount +
+                ", discountAmount=" + discountAmount +
+                ", areaAmont=" + areaAmont +
+                ", areaId=" + areaId +
+                ", employeeId=" + employeeId +
+                ", userId=" + userId +
+                '}';
+    }
 }

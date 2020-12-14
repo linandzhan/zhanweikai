@@ -1,9 +1,11 @@
 package zhanweikai.com.pojo;
 
+import lombok.ToString;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
-
+@ToString
 public class User {
     public static final String LEVEL_MIDDLE ="middle";
     public static final String LEVEL_LOW ="low";

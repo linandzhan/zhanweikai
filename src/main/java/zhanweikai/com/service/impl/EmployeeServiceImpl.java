@@ -36,7 +36,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee selectEmployeeByNameAndPassword(String username, String password) {
-        if(employeeMapper.countByNameAndPassword(username,password) > 0){
+        Integer i = employeeMapper.countByNameAndPassword(username, password);
+        if(i == 1){
             return employeeMapper.selectEmployeeByName(username);
         }
         return null;

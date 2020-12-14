@@ -6,7 +6,7 @@
         <result property="number" column="number"/>
         <result property="rentalPrice" column="rental_price"/>
         <result property="status" column="status"/>
-        <result property="beiyong1" column="beiyong1"/>
+        <result property="type" column="type"/>
         <result property="beiyong2" column="beiyong2"/>
 <!--        <association property="employeeId" javaType="zhanweikai.com.pojo.Employee">-->
 <!--            <id column="id" property="id"/>-->
@@ -17,8 +17,10 @@
     <select id="getEmployee" resultType="zhanweikai.com.pojo.Employee">
             select * from employee where id = #{id};
      </select>
+
+
     <sql id="Base_Column_List">
-    area_id, number , rental_price, status, beiyong1, beiyong2, employee_id
+    area_id, number , rental_price, status, type, beiyong2, employee_id
     </sql>
 
 

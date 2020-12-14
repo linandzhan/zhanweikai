@@ -1,5 +1,8 @@
 package zhanweikai.com.pojo;
 
+import lombok.ToString;
+
+@ToString
 public class Employee {
     private Long id;
 
