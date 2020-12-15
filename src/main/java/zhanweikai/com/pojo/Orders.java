@@ -3,12 +3,15 @@ package zhanweikai.com.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
-
+@Data
+@ToString
 public class Orders {
 
     private Long orderId;
@@ -20,16 +23,21 @@ public class Orders {
     private LocalDateTime createTime;
 
     /**
-     * 包场开始时间
+     * 包场开始时间(几月加号打球）
      */
 
-    private LocalDateTime startChartered;
+    private LocalDate playDay;
 
     /**
-     * 包场结束时间
+     * 所属哪个时间段的场次
      */
+    private Period periodId;
 
-    private LocalDateTime endChartered;
+//    /**
+//     * 包场结束时间
+//     */
+//
+//    private LocalDateTime endChartered;
     /**
      * 支付金额
      */
@@ -66,99 +74,5 @@ public class Orders {
     private User userId;
 
 
-    public Long getOrderId() {
-        return orderId;
-    }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    public LocalDateTime getStartChartered() {
-        return startChartered;
-    }
-
-    public void setStartChartered(LocalDateTime startChartered) {
-        this.startChartered = startChartered;
-    }
-
-    public LocalDateTime getEndChartered() {
-        return endChartered;
-    }
-
-    public void setEndChartered(LocalDateTime endChartered) {
-        this.endChartered = endChartered;
-    }
-
-    public Double getPaymentAmount() {
-        return paymentAmount;
-    }
-
-    public void setPaymentAmount(Double paymentAmount) {
-        this.paymentAmount = paymentAmount;
-    }
-
-    public Double getDiscountAmount() {
-        return discountAmount;
-    }
-
-    public void setDiscountAmount(Double discountAmount) {
-        this.discountAmount = discountAmount;
-    }
-
-    public Double getAreaAmont() {
-        return areaAmont;
-    }
-
-    public void setAreaAmont(Double areaAmont) {
-        this.areaAmont = areaAmont;
-    }
-
-    public Area getAreaId() {
-        return areaId;
-    }
-
-    public void setAreaId(Area areaId) {
-        this.areaId = areaId;
-    }
-
-    public Employee getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Employee employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public User getUserId() {
-        return userId;
-    }
-
-    public void setUserId(User userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "orderId=" + orderId +
-                ", createTime=" + createTime +
-                ", startChartered=" + startChartered +
-                ", endChartered=" + endChartered +
-                ", paymentAmount=" + paymentAmount +
-                ", discountAmount=" + discountAmount +
-                ", areaAmont=" + areaAmont +
-                ", areaId=" + areaId +
-                ", employeeId=" + employeeId +
-                ", userId=" + userId +
-                '}';
-    }
 }

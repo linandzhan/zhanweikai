@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zhanweikai.com.dao.PeriodMapper">
+
+    <resultMap id="periodMap" type="zhanweikai.com.pojo.Period">
+        <id property="periodId" column="period_id"/>
+        <result property="periodTime" column="period_time"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+    </resultMap>
+
+
+    <select id="searchByNow" resultType="java.lang.Long">
+        select period_id from period where start_time &gt; now() &lt; end_time
+    </select>
+</mapper>

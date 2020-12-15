@@ -4,8 +4,7 @@
     <resultMap id="ordersMap" type="zhanweikai.com.pojo.Orders">
         <id property="orderId" column="order_id"/>
         <result property="createTime" column="create_time"/>
-        <result property="startChartered" column="start_chartered"/>
-        <result property="endChartered" column="end_chartered"/>
+        <result property="playDay" column="play_day"/>
         <result property="paymentAmount" column="payment_amount"/>
         <result property="discountAmount" column="discount_amount"/>
         <result property="areaAmont" column="area_amount"/>
@@ -22,7 +21,7 @@
             <result property="userName" column="user_name"/>
             <result property="balance" column="balance"/>
         </association>
-        <association property="areaId" column="area_id" javaType="zhanweikai.com.pojo.Area">
+        <association property="areaId" column="area_id" javaType="zhanweikai.com.pojo.Area" select="getArea">
             <id property="areaId" column="area_id"/>
             <result property="number" column="number"/>
             <result property="rentalPrice" column="rental_price"/>
@@ -31,15 +30,30 @@
             <result property="beiyong2" column="beiyong2"/>
             <association property="employeeId" column="employee_id" javaType="zhanweikai.com.pojo.Employee"/>
         </association>
+
+        <association property="periodId" column="period_id" javaType="zhanweikai.com.pojo.Period" select="getPeriod">
+            <id property="periodId" column="period_id"/>
+            <result property="periodTime" column="period_time"/>
+            <result property="startTime" column="start_time"/>
+            <result property="endTime" column="end_time"/>
+        </association>
     </resultMap>
 
     <select id="getEmployee" resultType="zhanweikai.com.pojo.Employee">
             select * from employee where id = #{id};
      </select>
 
+    <select id="getArea" resultType="zhanweikai.com.pojo.Area">
+            select * from area where area_id = #{id};
+     </select>
+
+    <select id="getPeriod" resultType="zhanweikai.com.pojo.Period">
+            select * from period where period_id = #{id};
+     </select>
+
 
     <sql id="Base_Column_List">
-    order_id, create_time , start_chartered, end_chartered, payment_amount, discount_amount, area_amount,employee_id,user_id,area_id
+    order_id, create_time , play_day, period_id, payment_amount, discount_amount, area_amount,employee_id,user_id,area_id
     </sql>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ordersMap">
@@ -49,5 +63,14 @@
         where order_id = #{id,jdbcType=BIGINT}
     </select>
 
+
+    <select id="searchAreaByPeriodAndPlayDay" resultMap="ordersMap">
+-- 根据订单时间段和日期查询出对应的area
+
+        select
+        <include refid="Base_Column_List" />
+        from orders
+        where order_id = #{id,jdbcType=BIGINT}
+    </select>
 
 </mapper>

@@ -26,7 +26,8 @@ public class OrdersController {
     @ApiImplicitParam(name = "id", value = "测试id")
     @PostMapping("/api/orders/test")
     public RestResult search(){
-        Orders orders = ordersMapper.selectByPrimaryKey(2);
+        Orders orders = ordersMapper.selectByPrimaryKey(3);
+        Double rentalPrice = orders.getAreaId().getRentalPrice();
         System.out.println(orders);
         return null;
     }
@@ -34,18 +35,7 @@ public class OrdersController {
 
 
 
-    public RestResult searchAreaIsSpare(){
-        /*
-        * List<Area> areas;
-        * if(orders.getCreatTime() == now 查询出来所有的orders)
-        * List<Orders>  orders
-        * for(order : orders){
-        *  Area area = order.get(areaId);
-        *  根据订单的创建时间是现在时间，可以查询该订单对应的场地，然后设置场地的空余情况为false
-        * }
-        * */
-        return null;
-    }
+
 
 
 

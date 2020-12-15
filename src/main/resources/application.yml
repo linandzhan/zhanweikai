@@ -30,3 +30,4 @@ mybatis:
     aggressive-lazy-loading: false
 #   查询为空值时，不显示该字段
     call-setters-on-nulls=true:
+    map-underscore-to-camel-case: true
