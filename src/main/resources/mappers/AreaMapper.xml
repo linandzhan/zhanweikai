@@ -32,5 +32,11 @@
         where area_id = #{id,jdbcType=BIGINT}
     </select>
 
+    <select id="selectAll"  resultMap="areaMap">
+        select
+        <include refid="Base_Column_List" />
+        from area
+    </select>
+
 
 </mapper>

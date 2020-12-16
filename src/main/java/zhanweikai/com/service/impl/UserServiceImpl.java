@@ -141,4 +141,9 @@ public class UserServiceImpl implements UserService {
 
 
     }
+
+    @Override
+    public User attach(User user) {
+        return userMapper.selectByPrimaryKey(user.getUserId());
+    }
 }

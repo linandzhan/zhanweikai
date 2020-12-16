@@ -68,9 +68,12 @@
 -- 根据订单时间段和日期查询出对应的area
 
         select
-        <include refid="Base_Column_List" />
+        order_id,user_id,area_id
         from orders
-        where order_id = #{id,jdbcType=BIGINT}
+        where period_id = #{periodId} and play_day = #{playDay}
     </select>
 
+    <select id="searchByAreaAndTime" resultMap="ordersMap">
+        select order_id,user_id from orders where period_id = #{periodId} and play_day = #{playDay} and area_id = #{area.areaId}
+    </select>
 </mapper>

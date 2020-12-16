@@ -20,4 +20,6 @@ public interface UserService {
     RestResult reduceBalance(Long id, Double actualBalance);
 
     RestResult rechargeBalance(Long id, Double rechargeMoney);
+
+    User attach(User user);
 }

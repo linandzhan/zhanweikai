@@ -127,4 +127,12 @@ public class Area {
     public void setBeiyong2(String beiyong2) {
         this.beiyong2 = beiyong2;
     }
+
+    public Boolean getIsSpare() {
+        return isSpare;
+    }
+
+    public void setIsSpare(Boolean spare) {
+        isSpare = spare;
+    }
 }
