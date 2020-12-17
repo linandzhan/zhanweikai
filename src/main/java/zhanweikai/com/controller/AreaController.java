@@ -65,34 +65,36 @@ public class AreaController {
          * */
         SearchAreaIsSpareDTO searchAreaInfo = searchInfo.get("searchAreaInfo");
 
-        Long periodId =0L;
+        Long periodId =null;
         LocalDate playDay = null;
         //参数可传可不传
         if(searchAreaInfo != null){
            periodId = searchAreaInfo.getPeriodId();
            playDay = searchAreaInfo.getPlayDay();
         }
+//
+//
+//        List<Area> areas = areaService.searchIsSpare(periodId,playDay);
+//        List<AreaSearchResultDTO> areaDTOS = new ArrayList<>();
+//
+//
+//
+//        for (Area area :areas){
+//            AreaSearchResultDTO areaDTO = new AreaSearchResultDTO();
+//            BeanUtils.copyProperties(area,areaDTO);
+//            if(!area.getIsSpare()){
+//                //periodId这里有可能为0L，并不是真正的那个时间段，真正的时间段在searchIsSpare里面
+//               Orders order =  ordersMapper.searchByAreaAndTime(area,periodId,playDay);
+//                User user = userService.attach(order.getUserId());
+//                areaDTO.setUserName(user.getUserName());
+//            }
+//            areaDTOS.add(areaDTO);
+//        }
 
 
-        List<Area> areas = areaService.searchIsSpare(periodId,playDay);
-        List<AreaSearchResultDTO> areaDTOS = new ArrayList<>();
 
+//        return RestResult.success("返回成功",areaDTOS);
 
-
-        for (Area area :areas){
-            AreaSearchResultDTO areaDTO = new AreaSearchResultDTO();
-            BeanUtils.copyProperties(area,areaDTO);
-            if(!area.getIsSpare()){
-                //periodId这里有可能为0L，并不是真正的那个时间段，真正的时间段在searchIsSpare里面
-               Orders order =  ordersMapper.searchByAreaAndTime(area,periodId,playDay);
-                User user = userService.attach(order.getUserId());
-                areaDTO.setUserName(user.getUserName());
-            }
-            areaDTOS.add(areaDTO);
-        }
-
-
-
-        return RestResult.success("返回成功",areaDTOS);
+        return areaService.searchIsSpare(periodId,playDay);
     }
 }

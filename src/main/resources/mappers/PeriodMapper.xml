@@ -11,6 +11,6 @@
 
 
     <select id="searchByNow" resultType="java.lang.Long">
-        select period_id from period where start_time &gt; now() and now() &lt; end_time
+        select period_id from period where start_time &lt; now() and now() &lt; end_time
     </select>
 </mapper>
