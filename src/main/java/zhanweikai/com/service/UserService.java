@@ -22,4 +22,6 @@ public interface UserService {
     RestResult rechargeBalance(Long id, Double rechargeMoney);
 
     User attach(User user);
+
+    RestResult searchUserType(String phone);
 }

@@ -18,7 +18,7 @@ public class Period {
     /**
      * 时间段名
      */
-    private String period_time;
+    private String periodTime;
 
     /**
      * 开始时间

@@ -34,6 +34,14 @@ public class OrdersController {
 
 
 
+    @ApiOperation(value = "创建包场订单")
+    @ApiImplicitParam(name = "id", value = "测试id")
+    @PostMapping("/api/orders/save")
+    public RestResult save(){
+        return null;
+    }
+
+
 
 
 

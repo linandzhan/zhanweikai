@@ -14,4 +14,6 @@ public class AreaSearchResultDTO {
 
     private Boolean isSpare;
 
+    private String phone;
+
 }

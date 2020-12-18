@@ -1,5 +1,6 @@
 package zhanweikai.com.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,13 +10,27 @@ import lombok.ToString;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
+/**
+ * 会员或非会员包场订单
+ */
 @Data
 @ToString
 public class Orders {
 
+    /**
+     * 会员订单
+     */
+    public static final String TYPE_ORDER_MEMBER = "member";
+
+    /**
+     * 非会员订单
+     */
+    public static final String TYPE_ORDER_NON_MEMBER = "non-member";
+
     private Long orderId;
 
+
+    private String type;
     /**
      * 订单创建时间
      */
@@ -73,6 +88,10 @@ public class Orders {
      */
     private User userId;
 
+    /**
+     * 预约人电话
+     */
+    private String phone;
 
 
 }

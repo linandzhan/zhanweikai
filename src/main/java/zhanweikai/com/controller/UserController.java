@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -135,6 +136,15 @@ public class UserController {
 
 
         return  userService.rechargeBalance(id,rechargeMoney);
+    }
+
+    @ApiOperation(value = "根据手机查询用户信息")
+    @ApiImplicitParam(name = "phone", value = "手机信息")
+    @PostMapping("/api/user/searchUserType")
+    public RestResult searchUserType(@RequestBody JSONObject jsonObject){
+        String phone = (String) jsonObject.get("userPhone");
+
+        return userService.searchUserType(phone);
     }
 
 

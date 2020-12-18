@@ -137,13 +137,21 @@ public class UserServiceImpl implements UserService {
                 return RestResult.error(400,"充值失败");
             }
         }
-
-
-
     }
 
     @Override
     public User attach(User user) {
         return userMapper.selectByPrimaryKey(user.getUserId());
+    }
+
+    @Override
+    public RestResult searchUserType(String phone) {
+        User user = userMapper.selectByPhone(phone);
+        if(user != null){
+            return RestResult.success("have-level",user);
+        }else {
+            return RestResult.success("no-level");
+        }
+
     }
 }

@@ -58,6 +58,14 @@
     where user_id = #{userId,jdbcType=BIGINT}
   </select>
 
+  <select id="selectByPhone" resultMap="userMap">
+    select
+    user_id,
+    level
+    from users
+    where phone = #{phone}
+  </select>
+
 
 
 

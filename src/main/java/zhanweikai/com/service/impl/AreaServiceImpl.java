@@ -81,8 +81,13 @@ public class AreaServiceImpl implements AreaService {
             if(!area.getIsSpare()){
                 //场地不为空时,根据场地和时间段查询出是谁订的场地。
                 Orders order = ordersMapper.searchByAreaAndTime(area, periodId, playDay);
-                User user = userService.attach(order.getUserId());
-                areaResult.setUserName(user.getUserName());
+                if(order.getUserId().getUserId() != null){
+                    //有可能是非会员包场的
+                    User user = userService.attach(order.getUserId());
+                    areaResult.setUserName(user.getUserName());
+                }else {
+                    areaResult.setPhone(order.getPhone());
+                }
             }
             areaResults.add(areaResult);
         }
@@ -108,7 +113,7 @@ public class AreaServiceImpl implements AreaService {
         if (playDay == null){
             return LocalDate.now();
         }
-        return playDay;
+        return  playDay.plusDays(1);
     }
 
 
