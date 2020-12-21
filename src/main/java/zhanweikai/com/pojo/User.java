@@ -10,6 +10,7 @@ public class User {
     public static final String LEVEL_MIDDLE ="middle";
     public static final String LEVEL_LOW ="low";
     public static final String LEVEL_HIGH ="high";
+    public static final String LEVEL_NO_LEVEL = "no-level";
 
 
     private Long userId;

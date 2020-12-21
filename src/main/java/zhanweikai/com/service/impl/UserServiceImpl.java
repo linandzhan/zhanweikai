@@ -88,6 +88,9 @@ public class UserServiceImpl implements UserService {
             double result = reduceBalance * 0.9;
             culculateDTO.setActualBalance(result);
             culculateDTO.setDiscount("9折");
+        }else {
+            culculateDTO.setActualBalance(reduceBalance);
+            culculateDTO.setDiscount("无折扣");
         }
 
 
@@ -130,11 +133,39 @@ public class UserServiceImpl implements UserService {
         }else {
             user.setStatus(null);
             user.setBalance(user.getBalance() + rechargeMoney);
+            isLevelUpdate(user,rechargeMoney);
             int i = userMapper.updateByPrimaryKeySelective(user);
             if(i > 0){
                 return RestResult.success("充值成功");
             }else {
                 return RestResult.error(400,"充值失败");
+            }
+        }
+    }
+
+    private void isLevelUpdate(User user, Double rechargeMoney) {
+        User attachUser = attach(user);
+        if(User.LEVEL_NO_LEVEL.equals(attachUser.getLevel())){
+            if(rechargeMoney >= 100 && rechargeMoney < 200){
+                user.setLevel(User.LEVEL_LOW);
+            }else if(rechargeMoney >= 200 && rechargeMoney < 400){
+                user.setLevel(User.LEVEL_MIDDLE);
+            }else if(rechargeMoney >= 400){
+                user.setLevel(User.LEVEL_HIGH);
+            }
+        }
+
+        if(User.LEVEL_LOW.equals(attachUser.getLevel())){
+           if(rechargeMoney >= 200 && rechargeMoney < 400){
+                user.setLevel(User.LEVEL_MIDDLE);
+            }else if(rechargeMoney >= 400){
+                user.setLevel(User.LEVEL_HIGH);
+            }
+        }
+
+        if(User.LEVEL_MIDDLE.equals(attachUser.getLevel())){
+            if(rechargeMoney >= 400){
+                user.setLevel(User.LEVEL_HIGH);
             }
         }
     }
@@ -153,5 +184,21 @@ public class UserServiceImpl implements UserService {
             return RestResult.success("no-level");
         }
 
+    }
+
+    @Override
+    public RestResult getTypeByBalance(Double balance) {
+        //活动规则：100到200初级  200到400中级  400以上高级
+        User user = new User();
+        if( balance >= 100 && balance <200) {
+            user.setLevel(User.LEVEL_LOW);
+        }else if(balance >= 200 && balance <400) {
+            user.setLevel(User.LEVEL_MIDDLE);
+        }else if(balance >= 400) {
+            user.setLevel(User.LEVEL_HIGH);
+        }else {
+            user.setLevel("no-level");
+        }
+        return RestResult.success(user);
     }
 }

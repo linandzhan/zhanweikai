@@ -29,8 +29,10 @@ public class Orders {
 
     private Long orderId;
 
-
-    private String type;
+    /**
+     * 订单状态
+     */
+    private String staus;
     /**
      * 订单创建时间
      */

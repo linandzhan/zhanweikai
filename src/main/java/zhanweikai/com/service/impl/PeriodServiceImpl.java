@@ -15,9 +15,18 @@ public class PeriodServiceImpl implements PeriodService {
     @Resource
     private PeriodMapper periodMapper;
 
+
+
     @Override
     public RestResult searchPeriod() {
         List<Period> periods = periodMapper.selectAll();
         return RestResult.success("返回成功",periods);
+    }
+
+    @Override
+    public Period getPeriod(Long id) {
+        Period period = new Period();
+        period.setPeriodId(id);
+        return period;
     }
 }

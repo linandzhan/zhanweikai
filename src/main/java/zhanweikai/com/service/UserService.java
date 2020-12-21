@@ -24,4 +24,6 @@ public interface UserService {
     User attach(User user);
 
     RestResult searchUserType(String phone);
+
+    RestResult getTypeByBalance(Double balance);
 }

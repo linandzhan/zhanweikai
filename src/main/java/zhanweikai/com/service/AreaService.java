@@ -10,4 +10,8 @@ public interface AreaService {
     Area findById(Long id);
 
     RestResult searchIsSpare(Long periodId, LocalDate playDay);
+
+    Area attach(Area area);
+
+    Area getArea(Long areaId);
 }

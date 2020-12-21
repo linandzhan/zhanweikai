@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.pojo.User;
 import zhanweikai.com.service.UserService;
-import zhanweikai.com.vo.CulculateDTO;
-import zhanweikai.com.vo.EmployeeQuery;
-import zhanweikai.com.vo.Pageable;
-import zhanweikai.com.vo.UserQueryDTO;
+import zhanweikai.com.vo.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -84,9 +81,20 @@ public class UserController {
     @ApiOperation(value = "用户添加")
     @ApiImplicitParam(name = "user", value = "用户信息")
     @PostMapping("/api/user/save")
+    //
     public RestResult save(@RequestBody Map<String, User> userInfo){
         User user = userInfo.get("userInfo");
+        if("初级".equals(user.getLevel())){
+            user.setLevel(User.LEVEL_LOW);
+        }else if ("中级".equals(user.getLevel())){
+            user.setLevel(User.LEVEL_MIDDLE);
+        }else if ("高级".equals(user.getLevel())){
+            user.setLevel(User.LEVEL_HIGH);
+        }else {
+            user.setLevel(User.LEVEL_NO_LEVEL);
+        }
         return  userService.save(user);
+
     }
 
 
@@ -145,6 +153,16 @@ public class UserController {
         String phone = (String) jsonObject.get("userPhone");
 
         return userService.searchUserType(phone);
+    }
+
+
+    @ApiOperation(value = "根据充值金额确定会员级别")
+    @ApiImplicitParam(name = "balance", value = "充值金额")
+    @PostMapping("/api/user/culculateLevel")
+    public RestResult getType(@RequestBody JSONObject jsonObject){
+        String balance = (String) jsonObject.get("userBalance");
+        Double balance_ = Double.parseDouble(balance);
+        return userService.getTypeByBalance(balance_);
     }
 
 

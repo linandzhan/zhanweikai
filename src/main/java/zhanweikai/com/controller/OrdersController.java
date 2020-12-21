@@ -11,6 +11,8 @@ import zhanweikai.com.dao.OrdersMapper;
 import zhanweikai.com.pojo.Area;
 import zhanweikai.com.pojo.Employee;
 import zhanweikai.com.pojo.Orders;
+import zhanweikai.com.service.OrdersService;
+import zhanweikai.com.vo.CreateOrdersDTO;
 import zhanweikai.com.vo.EmployeeQuery;
 
 import javax.annotation.Resource;
@@ -20,6 +22,8 @@ import java.util.Map;
 public class OrdersController {
     @Resource
     private OrdersMapper ordersMapper;
+    @Resource
+    private OrdersService ordersService;
 
 
     @ApiOperation(value = "测试")
@@ -37,8 +41,9 @@ public class OrdersController {
     @ApiOperation(value = "创建包场订单")
     @ApiImplicitParam(name = "id", value = "测试id")
     @PostMapping("/api/orders/save")
-    public RestResult save(){
-        return null;
+    public RestResult save(@RequestBody Map<String, CreateOrdersDTO> createOrdersInfo){
+        CreateOrdersDTO orderInfo = createOrdersInfo.get("orderInfo");
+        return ordersService.saveCharteredOrders(orderInfo);
     }
 
 

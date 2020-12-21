@@ -8,6 +8,7 @@ import zhanweikai.com.dao.OrdersMapper;
 import zhanweikai.com.dao.PeriodMapper;
 import zhanweikai.com.pojo.Area;
 import zhanweikai.com.pojo.Orders;
+import zhanweikai.com.pojo.Period;
 import zhanweikai.com.pojo.User;
 import zhanweikai.com.service.AreaService;
 import zhanweikai.com.service.UserService;
@@ -28,6 +29,18 @@ public class AreaServiceImpl implements AreaService {
     private PeriodMapper periodMapper;
     @Resource
     private UserService userService;
+
+    public Area attach(Area area) {
+        return areaMapper.selectByPrimaryKey(area.getAreaId());
+    }
+
+    @Override
+    public Area getArea(Long areaId) {
+        Area area = new Area();
+        area.setAreaId(areaId);
+        return area;
+    }
+
 
     @Override
     public Area findById(Long id) {
@@ -113,7 +126,7 @@ public class AreaServiceImpl implements AreaService {
         if (playDay == null){
             return LocalDate.now();
         }
-        return  playDay.plusDays(1);
+        return  playDay;
     }
 
 

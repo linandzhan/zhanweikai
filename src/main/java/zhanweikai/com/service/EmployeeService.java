@@ -6,6 +6,7 @@ import zhanweikai.com.pojo.Role;
 import zhanweikai.com.vo.EmployeeInfo;
 import zhanweikai.com.vo.EmployeeQuery;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 
@@ -28,4 +29,6 @@ public interface EmployeeService {
     Employee get(Long id);
 
     Set<String> findRoleByEmployee(Long id);
+
+    Employee getAccount();
 }

@@ -1,9 +1,12 @@
 package zhanweikai.com.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.dao.EmployeeMapper;
 import zhanweikai.com.pojo.Employee;
@@ -14,6 +17,8 @@ import zhanweikai.com.vo.EmployeeQuery;
 import zhanweikai.com.vo.ListVo;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +26,15 @@ import java.util.Set;
 public class EmployeeServiceImpl implements EmployeeService {
     @Resource
     EmployeeMapper employeeMapper;
+
+
+    public Employee getAccount(){
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+                .getRequestAttributes()).getRequest();
+        Employee employee = (Employee) request.getSession().getAttribute("employee");
+        return employee;
+    }
+
 
 
     @Override
