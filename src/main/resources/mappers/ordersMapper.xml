@@ -41,6 +41,21 @@
         </association>
     </resultMap>
 
+
+    <select id="countOrdersByTime" resultType="java.lang.Long">
+            select count(*) from orders where  create_time &lt; #{endTime} and create_time &gt; #{startTime};
+     </select>
+
+    <select id="countAmountByTime" resultType="java.lang.Double">
+            select sum(payment_amount) from orders where  create_time &lt; #{endTime} and create_time &gt; #{startTime};
+     </select>
+
+
+    <select id="countAmount" resultType="java.lang.Double">
+            select sum(payment_amount) from orders;
+     </select>
+
+
     <select id="getEmployee" resultType="zhanweikai.com.pojo.Employee">
             select * from employee where id = #{id};
      </select>
@@ -78,6 +93,15 @@
     <select id="searchByAreaAndTime" resultMap="ordersMap">
         select order_id,user_id,phone from orders where period_id = #{periodId} and play_day = #{playDay} and area_id = #{area.areaId}
     </select>
+
+    <select id="selectOrders" resultMap="ordersMap">
+        select order_id,phone,area_id,employee_id,create_time,play_day,period_id from orders
+    </select>
+
+    <select id="countOrders" resultType="java.lang.Long">
+        select count(*) from orders
+    </select>
+
 
 
 
@@ -154,4 +178,5 @@
             </if>
         </trim>
     </insert>
+
 </mapper>

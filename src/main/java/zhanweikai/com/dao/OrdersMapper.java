@@ -7,6 +7,7 @@ import zhanweikai.com.pojo.Orders;
 import zhanweikai.com.vo.CreateOrdersDTO;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
@@ -18,4 +19,14 @@ public interface OrdersMapper {
     Orders searchByAreaAndTime(Area area, Long periodId, LocalDate playDay);
 
     int save(CreateOrdersDTO ordersInfo);
+
+    List<Orders> selectOrders();
+
+    Long countOrders();
+
+    Double countAmount();
+
+    Long countOrdersByTime(LocalDateTime startTime, LocalDateTime endTime);
+
+    Double countAmountByTime(LocalDateTime startTime, LocalDateTime endTime);
 }
