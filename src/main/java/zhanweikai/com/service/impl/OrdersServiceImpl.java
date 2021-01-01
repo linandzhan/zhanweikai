@@ -109,15 +109,20 @@ public class OrdersServiceImpl implements OrdersService {
     @Override
     public RestResult searchStatistics(LocalDateTime startTime, LocalDateTime endTime) {
         StatisticsDTO statisticsDTO = new StatisticsDTO();
-
+        Double increaseIncome;
 
         Long ordersQuantity = ordersMapper.countOrders();
         Double allIncome = ordersMapper.countAmount();
 
         Long increaseOrdersQuantity = ordersMapper.countOrdersByTime(startTime,endTime);
 
-       Double increaseIncome =  ordersMapper.countAmountByTime(startTime,endTime);
-
+        increaseIncome =  ordersMapper.countAmountByTime(startTime,endTime);
+        if(increaseIncome == null) {
+            increaseIncome = 0D;
+        }
+        if(allIncome == null) {
+            allIncome = 0D;
+        }
        statisticsDTO.setAllIncome(allIncome);
        statisticsDTO.setAllOrdersQuantity(ordersQuantity);
        statisticsDTO.setIncreaseOrdersQuantity(increaseOrdersQuantity);

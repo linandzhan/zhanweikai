@@ -29,7 +29,7 @@ public class IndexController {
     private AreaService areaService;
 
     @GetMapping("/index")
-    public String index() {
+    public String index(){
         return "index";
     }
 

@@ -39,4 +39,33 @@
     </select>
 
 
+    <select id="selectByAreaQuery"  resultMap="areaMap">
+        select
+        area_id, number , rental_price, status, type
+        from area
+        <where>
+            <choose>
+                <when test="number != null and number != ''">
+                    <bind name="pattern" value="'%' + number + '%'"/>
+                    number like #{pattern}
+                </when>
+            </choose>
+        </where>
+    </select>
+
+
+    <select id="count"  resultType="java.lang.Long">
+        select
+        count(*)
+        from area
+        <where>
+            <choose>
+                <when test="number != null and number != ''">
+                    <bind name="pattern" value="'%' + number + '%'"/>
+                    number like #{pattern}
+                </when>
+            </choose>
+        </where>
+    </select>
+
 </mapper>

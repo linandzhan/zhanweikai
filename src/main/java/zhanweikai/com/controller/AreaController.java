@@ -1,5 +1,6 @@
 package zhanweikai.com.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +25,7 @@ import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -77,4 +79,17 @@ public class AreaController {
 
         return areaService.searchIsSpare(periodId,playDay);
     }
+
+    @ApiOperation(value = "场地预约查询")
+    @ApiImplicitParam(name = "", value = "测试id")
+    @PostMapping("/api/area/searchArea")
+    public RestResult searchArea(@RequestBody JSONObject jsonObject ){
+        LinkedHashMap searchInfo = (LinkedHashMap) jsonObject.get("searchInfo");
+        Integer page = (Integer) searchInfo.get("page");
+        Integer size = (Integer) searchInfo.get("size");
+        String number = (String) searchInfo.get("number");
+
+        return areaService.searchArea(number,page,size);
+    }
+
 }

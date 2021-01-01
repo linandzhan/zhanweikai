@@ -1,23 +1,24 @@
 package zhanweikai.com.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.dao.AreaMapper;
 import zhanweikai.com.dao.OrdersMapper;
 import zhanweikai.com.dao.PeriodMapper;
-import zhanweikai.com.pojo.Area;
-import zhanweikai.com.pojo.Orders;
-import zhanweikai.com.pojo.Period;
-import zhanweikai.com.pojo.User;
+import zhanweikai.com.pojo.*;
 import zhanweikai.com.service.AreaService;
 import zhanweikai.com.service.UserService;
 import zhanweikai.com.vo.AreaSearchResultDTO;
+import zhanweikai.com.vo.ListVo;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AreaServiceImpl implements AreaService {
@@ -41,6 +42,30 @@ public class AreaServiceImpl implements AreaService {
         return area;
     }
 
+    @Override
+    public RestResult searchArea(String number, Integer page, Integer size) {
+        Map map = new HashMap();
+        map.put("number",number);
+        List<Area> list =  PageHelper.startPage(page,size).doSelectPage(()->areaMapper.selectByAreaQuery(map));
+        Long total = areaMapper.count(map);
+        List<Area> areas = new ArrayList<>();
+        for (Area area : list) {
+                Area myArea = new Area();
+                myArea.setAreaId(area.getAreaId());
+                myArea.setNumber(area.getNumber());
+                myArea.setRentalPrice(area.getRentalPrice());
+                myArea.setStatus(area.getStatus());
+                myArea.setType(area.getType());
+                areas.add(myArea);
+        }
+        ListVo listVo = new ListVo();
+        listVo.setTotal(total);
+        listVo.setItems(areas);
+//        listVo.setItems(list);
+//        listVo.setTotal(total);
+        return RestResult.success("查询成功",listVo);
+    }
+
 
     @Override
     public Area findById(Long id) {
@@ -56,13 +81,8 @@ public class AreaServiceImpl implements AreaService {
      */
     @Override
     public RestResult searchIsSpare(Long periodId, LocalDate playDay) {
-
         List<Area> areas =  areaMapper.selectAll();
         areas.forEach(i->i.setIsSpare(true));   //一般场地都为空
-
-
-
-
 
         Long period = getPeriodId(periodId);
         LocalDate playDay_ = getPlayDay(playDay);
@@ -78,12 +98,9 @@ public class AreaServiceImpl implements AreaService {
                 }
             }
         }
-
         List<AreaSearchResultDTO> areaResults = new ArrayList<>();
 
         setAreaResult(areaResults,areas,period,playDay_);
-
-
         return RestResult.success("返回成功",areaResults);
     }
 

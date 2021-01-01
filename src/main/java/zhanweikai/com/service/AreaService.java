@@ -14,4 +14,6 @@ public interface AreaService {
     Area attach(Area area);
 
     Area getArea(Long areaId);
+
+    RestResult searchArea(String number, Integer page, Integer size);
 }
