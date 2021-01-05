@@ -21,7 +21,6 @@ public class StringNoRepeat {
                     }
                     set.clear();
                     break;
-
                 }
             }
         }
