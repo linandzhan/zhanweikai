@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class Test1 {
     public static Object baozidian = null;
 

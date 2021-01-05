@@ -4,10 +4,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import zhanweikai.com.annotation.RequiredPermission;
+import zhanweikai.com.annotation.manager.TokenManager;
+import zhanweikai.com.annotation.model.TokenModel;
 import zhanweikai.com.common.RestResult;
 import zhanweikai.com.pojo.Employee;
 import zhanweikai.com.service.EmployeeService;
@@ -24,6 +27,8 @@ import java.util.Map;
 public class EmployeeController {
     @Resource
     private EmployeeService employeeService;
+    @Resource
+    private TokenManager tokenManager;
 
 
     @ApiOperation(value = "用户登录接口")
@@ -43,10 +48,14 @@ public class EmployeeController {
             return RestResult.error(201,"账号已被禁用");
         }
         else{
+            TokenModel model = tokenManager.createToken(employee.getId());
+
+
             http.getSession().setAttribute("employee",employee);
             RestResult restResult = RestResult.success();
             restResult.put("employee",employee);
             restResult.put("message","返回成功");
+//            restResult.put("token",model.getToken());
             return  restResult;
         }
     }

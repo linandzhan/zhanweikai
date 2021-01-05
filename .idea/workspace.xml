@@ -2,6 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d80a2497-8082-4cad-80b0-2817f3e31157" name="Default Changelist" comment="12月10日晚提交">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_5_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_3_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_4_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/annotation/CurrentUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/annotation/manager/TokenManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/annotation/manager/impl/RedisTokenManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/annotation/model/TokenModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/common/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/HashMapDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tree/TreeCeng.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tree/TreeZhong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/字符串练习/StringNoRepeat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_74.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_74.xml" afterDir="false" />
@@ -95,11 +119,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/AreaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/AreaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zhanweikai/com/service/AreaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/service/AreaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zhanweikai/com/service/impl/AreaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/service/impl/AreaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/PeriodMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/PeriodMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/zhanweikai/com/pojo/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zhanweikai/com/pojo/Area.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zhanweikai/com/config/interceptor/AuthenticationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/config/interceptor/AuthenticationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zhanweikai/com/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zhanweikai/com/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zhanweikai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zhanweikai.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,8 +138,8 @@
       <list>
         <option value="HTML File" />
         <option value="Kotlin File" />
-        <option value="AnnotationType" />
         <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -150,29 +177,33 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="zhanweikai.com.config.interceptor" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xiangmu\zhanweikai9\src\main\java\zhanweikai\com\annotation" />
       <recent name="D:\xiangmu\zhanweikai\src\main\java\zhanweikai\com\pojo" />
       <recent name="D:\xiangmu\zhanweikai\src\main\resources\static" />
       <recent name="D:\xiangmu\zhanweikai\src\main\resources\public" />
       <recent name="D:\xiangmu\zhanweikai\src\main\resources\templates" />
-      <recent name="D:\xiangmu\zhanweikai\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="zhanweikai.com.common" />
+      <recent name="zhanweikai.com.annotation.model" />
       <recent name="zhanweikai.com.pojo" />
       <recent name="zhanweikai.com.vo" />
       <recent name="zhanweikai.com.config" />
-      <recent name="zhanweikai.com.common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xiangmu\zhanweikai9\src\main\java\zhanweikai\com\config\util" />
       <recent name="D:\xiangmu\zhanweikai\src\main\resources\static" />
       <recent name="D:\xiangmu\zhanweikai\src\main\resources\static\login" />
       <recent name="D:\xiangmu\zhanweikai\src\main\resources\static\main" />
       <recent name="D:\xiangmu\zhanweikai\src\main\resources\templates" />
-      <recent name="D:\xiangmu\zhanweikai\src\main\resources\public" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -198,13 +229,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ZhanweikaiApplication">
-    <configuration name="Demo9" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Demo9" />
-      <module name="zhanweikai" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ListDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ListDemo" />
       <module name="zhanweikai" />
@@ -219,15 +243,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test1" />
+    <configuration name="StringNoRepeat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="字符串练习.StringNoRepeat" />
       <module name="zhanweikai" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="字符串练习.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="employee#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/employee.http" runType="Run single request">
-      <method v="2" />
+    <configuration name="TreeCeng" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.TreeCeng" />
+      <module name="zhanweikai" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TreeZhong" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.TreeZhong" />
+      <module name="zhanweikai" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="ZhanweikaiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="zhanweikai" />
@@ -238,11 +291,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StringNoRepeat" />
+        <item itemvalue="Application.TreeCeng" />
+        <item itemvalue="Application.TreeZhong" />
         <item itemvalue="Application.Solution1" />
         <item itemvalue="Application.ListDemo" />
-        <item itemvalue="Application.Test1" />
-        <item itemvalue="Application.Demo9" />
-        <item itemvalue="HTTP Request.employee#1" />
       </list>
     </recent_temporary>
   </component>
@@ -282,7 +335,16 @@
       <workItem from="1608017329489" duration="11420000" />
       <workItem from="1608029849304" duration="25000" />
       <workItem from="1608084065688" duration="9722000" />
-      <workItem from="1608169400736" duration="9248000" />
+      <workItem from="1608169400736" duration="9290000" />
+      <workItem from="1608256045626" duration="14725000" />
+      <workItem from="1608514947368" duration="22792000" />
+      <workItem from="1608601134828" duration="13310000" />
+      <workItem from="1608688603392" duration="897000" />
+      <workItem from="1608774593410" duration="9394000" />
+      <workItem from="1608860382645" duration="9234000" />
+      <workItem from="1608946302846" duration="712000" />
+      <workItem from="1609726352723" duration="10854000" />
+      <workItem from="1609812961270" duration="411000" />
     </task>
     <task id="LOCAL-00001" summary="12月1日提交">
       <created>1606808701464</created>
@@ -354,7 +416,35 @@
       <option name="project" value="LOCAL" />
       <updated>1608097913756</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="12月17日晚提交">
+      <created>1608201773366</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608201773366</updated>
+    </task>
+    <task id="LOCAL-00012" summary="12月18日晚提交">
+      <created>1608284282159</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608284282159</updated>
+    </task>
+    <task id="LOCAL-00013" summary="12月10日晚提交">
+      <created>1608547424986</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608547424986</updated>
+    </task>
+    <task id="LOCAL-00014" summary="12月22日晚提交">
+      <created>1608635274877</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608635274877</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,24 +456,31 @@
     <MESSAGE value="12月7日晚提交" />
     <MESSAGE value="12月8日晚提交" />
     <MESSAGE value="12月9日晚提交" />
-    <MESSAGE value="12月10日晚提交" />
     <MESSAGE value="12月15日晚提交" />
     <MESSAGE value="12月16日晚提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="12月16日晚提交" />
+    <MESSAGE value="12月17日晚提交" />
+    <MESSAGE value="12月18日晚提交" />
+    <MESSAGE value="12月10日晚提交" />
+    <MESSAGE value="12月22日晚提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="12月22日晚提交" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Auto_Import" timestamp="1607307275349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Auto_Import/0.0.1920.1040@0.0.1920.1040" timestamp="1607307275349" />
+    <state x="1032" y="182" key="#Inspections" timestamp="1608802204412">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1032" y="182" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1608802204412" />
     <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605774460329">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605774460329" />
-    <state x="323" y="233" key="#com.intellij.ide.util.MemberChooser" timestamp="1608094674807">
+    <state x="323" y="233" key="#com.intellij.ide.util.MemberChooser" timestamp="1608629028920">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="323" y="233" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1608094674807" />
+    <state x="323" y="233" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1608629028920" />
     <state x="143" y="448" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1607669441869">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -392,79 +489,83 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606132460206" />
-    <state x="560" y="113" key="CommitChangelistDialog2" timestamp="1608097912530">
+    <state x="1170" y="270" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1608875670346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608097912530" />
+    <state x="1170" y="270" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608875670346" />
+    <state x="560" y="113" key="CommitChangelistDialog2" timestamp="1608635274110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="560" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608635274110" />
     <state x="184" y="86" key="DiffContextDialog" timestamp="1607518204926">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="86" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607518204926" />
-    <state x="452" y="278" key="FileChooserDialogImpl" timestamp="1607911018761">
+    <state x="452" y="278" key="FileChooserDialogImpl" timestamp="1608946366052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="362" y="220" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607740629763" />
-    <state x="452" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607911018761" />
-    <state width="1184" height="310" key="GridCell.Tab.0.bottom" timestamp="1608197945655">
+    <state x="452" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608946366052" />
+    <state width="914" height="216" key="GridCell.Tab.0.bottom" timestamp="1609756393909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607783497021" />
-    <state width="1184" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.0.center" timestamp="1608197945655">
+    <state width="914" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393909" />
+    <state width="914" height="216" key="GridCell.Tab.0.center" timestamp="1609756393909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607783497021" />
-    <state width="1184" height="310" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.0.left" timestamp="1608197945655">
+    <state width="914" height="216" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393909" />
+    <state width="914" height="216" key="GridCell.Tab.0.left" timestamp="1609756393909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607783497021" />
-    <state width="1184" height="310" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.0.right" timestamp="1608197945655">
+    <state width="914" height="216" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393909" />
+    <state width="914" height="216" key="GridCell.Tab.0.right" timestamp="1609756393909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607783497021" />
-    <state width="1184" height="310" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.1.bottom" timestamp="1608197945655">
+    <state width="914" height="216" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393909" />
+    <state width="914" height="216" key="GridCell.Tab.1.bottom" timestamp="1609756393910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.1.center" timestamp="1608197945655">
+    <state width="914" height="216" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393910" />
+    <state width="914" height="216" key="GridCell.Tab.1.center" timestamp="1609756393909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.1.left" timestamp="1608197945655">
+    <state width="914" height="216" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393909" />
+    <state width="914" height="216" key="GridCell.Tab.1.left" timestamp="1609756393909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.1.right" timestamp="1608197945655">
+    <state width="914" height="216" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393909" />
+    <state width="914" height="216" key="GridCell.Tab.1.right" timestamp="1609756393910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.2.bottom" timestamp="1608197945656">
+    <state width="914" height="216" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609756393910" />
+    <state width="914" height="263" key="GridCell.Tab.2.bottom" timestamp="1608875737023">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945656" />
-    <state width="1184" height="310" key="GridCell.Tab.2.center" timestamp="1608197945655">
+    <state width="914" height="263" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608875737023" />
+    <state width="914" height="263" key="GridCell.Tab.2.center" timestamp="1608875737022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.2.left" timestamp="1608197945655">
+    <state width="914" height="263" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608875737022" />
+    <state width="914" height="263" key="GridCell.Tab.2.left" timestamp="1608875737022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945655" />
-    <state width="1184" height="310" key="GridCell.Tab.2.right" timestamp="1608197945656">
+    <state width="914" height="263" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608875737022" />
+    <state width="914" height="263" key="GridCell.Tab.2.right" timestamp="1608875737023">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="723" height="244" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1607783496866" />
-    <state width="1184" height="310" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608197945656" />
+    <state width="914" height="263" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608875737023" />
     <state x="1080" y="221" key="NewModule_or_Project.wizard" timestamp="1606787488197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -473,24 +574,24 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="391" y="234" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607670209420" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1607911020692">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1608794795391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="369" y="109" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607740632300" />
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607911020692" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1608097915492">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608794795391" />
+    <state x="568" y="187" key="Vcs.Push.Dialog.v2" timestamp="1608635276733">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608097915492" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1607933658099">
+    <state x="568" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608635276733" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1608946339204">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607933658099" />
-    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608201748134">
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608946339204" />
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609813419945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="602" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1607789114518" />
-    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608201748134" />
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609813419945" />
     <state x="760" y="258" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1607588989704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -507,10 +608,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1096" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607588610543" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608190818839">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609730679491">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608190818839" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609730679491" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -522,7 +623,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/EmployeeController.java</url>
-          <line>70</line>
+          <line>79</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -532,13 +633,8 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/service/impl/UserServiceImpl.java</url>
-          <line>101</line>
+          <line>104</line>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/config/interceptor/AuthenticationInterceptor.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/IndexController.java</url>
@@ -546,19 +642,19 @@
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/AreaController.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="57" />
+          <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/UserController.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/service/impl/AreaServiceImpl.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="63" />
+          <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/annotation/manager/impl/RedisTokenManager.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zhanweikai/com/controller/AreaController.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="64" />
+          <url>file://$PROJECT_DIR$/src/test/java/tree/TreeZhong.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/ListDemo.java</url>
@@ -577,6 +673,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/zhanweikai9$ZhanweikaiApplication.ic" NAME="ZhanweikaiApplication Coverage Results" MODIFIED="1608260850043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/zhanweikai7$ZhanweikaiApplication.ic" NAME="ZhanweikaiApplication Coverage Results" MODIFIED="1607572607168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

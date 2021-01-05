@@ -72,38 +72,38 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
      * 是否有权限
      */
     private boolean hasPermission(Object handler,HttpServletRequest request) {
-        if (handler instanceof HandlerMethod) {
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            // 获取方法上的注解
-            RequiredPermission requiredPermission = handlerMethod.getMethod().getAnnotation(RequiredPermission.class);
-            // 如果方法上的注解为空 则获取类的注解
-            if (requiredPermission == null) {
-                requiredPermission = handlerMethod.getMethod().getDeclaringClass().getAnnotation(RequiredPermission.class);
-            }
-            // 如果注解为null, 说明不需要拦截, 直接放过
-            if (requiredPermission == null) {
-                return true;
-            }
-            // 如果标记了注解，则判断权限
-            if (StringUtils.isNotBlank(requiredPermission.value())) {
-                // 应该到 redis 或数据库 中获取该用户的权限信息 并判断是否有权限
-                //Set<String> permissionSet = userService.getPermissionSet();
-                // 这里测试使用 直接add
-                Set<String> permissionSet  = new HashSet<>();
-//                permissionSet.add("user:view");
-//                permissionSet.add("user:save");
-                Employee employee = (Employee) request.getSession().getAttribute("employee");
-                permissionSet  = employeeService.findRoleByEmployee(employee.getId());
-
-                if (CollectionUtils.isEmpty(permissionSet) ){
-                    return false;
-                }
-                return permissionSet.contains(requiredPermission.value());
-
-
+//        if (handler instanceof HandlerMethod) {
+//            HandlerMethod handlerMethod = (HandlerMethod) handler;
+//            // 获取方法上的注解
+//            RequiredPermission requiredPermission = handlerMethod.getMethod().getAnnotation(RequiredPermission.class);
+//            // 如果方法上的注解为空 则获取类的注解
+//            if (requiredPermission == null) {
+//                requiredPermission = handlerMethod.getMethod().getDeclaringClass().getAnnotation(RequiredPermission.class);
+//            }
+//            // 如果注解为null, 说明不需要拦截, 直接放过
+//            if (requiredPermission == null) {
 //                return true;
-            }
-        }
+//            }
+//            // 如果标记了注解，则判断权限
+//            if (StringUtils.isNotBlank(requiredPermission.value())) {
+//                // 应该到 redis 或数据库 中获取该用户的权限信息 并判断是否有权限
+//                //Set<String> permissionSet = userService.getPermissionSet();
+//                // 这里测试使用 直接add
+//                Set<String> permissionSet  = new HashSet<>();
+////                permissionSet.add("user:view");
+////                permissionSet.add("user:save");
+//                Employee employee = (Employee) request.getSession().getAttribute("employee");
+//                permissionSet  = employeeService.findRoleByEmployee(employee.getId());
+//
+//                if (CollectionUtils.isEmpty(permissionSet) ){
+//                    return false;
+//                }
+//                return permissionSet.contains(requiredPermission.value());
+//
+//
+////                return true;
+//            }
+//        }
         return true;
     }
     @Override
