@@ -33,3 +33,37 @@ public class StringNoRepeat {
         System.out.println(l);
     }
 }
+
+/**
+ * 无重复字符最长子串
+ */
+class StringNoRepeat1{
+    public static int lengthOfLongestSubstring(String s) {
+        int length = 0;
+        int max = 0;
+        char[] chars = s.toCharArray();
+        Set<Character> set = new HashSet<>();
+
+        for (int i = 0; i < chars.length-1; i++) {
+            set.add(chars[i]);
+            for (int j = i+1; j < chars.length; j++) {
+                if (set.contains(chars[j])) {
+                    length = set.size();
+                    max = Math.max(max, length);
+                    set.clear();
+                    break;
+                }
+                set.add(chars[j]);
+
+
+            }
+        }
+
+        return max;
+    }
+
+    public static void main(String[] args) {
+        int l = lengthOfLongestSubstring("ppplllkjhgfjjkkiuuiytghjk");
+        System.out.println(l);
+    }
+}
