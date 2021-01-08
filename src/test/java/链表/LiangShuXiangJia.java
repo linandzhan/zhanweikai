@@ -86,12 +86,11 @@ public class LiangShuXiangJia {
 
        @Override
        public String toString() {
-           StringBuilder str = new StringBuilder();
-           str.append("val:"+val+" ");
-           while(next != null) {
-               str.append("val:"+next.val+" ");
-               next = next.next;
-           }
+          StringBuilder str = new StringBuilder();
+          str.append("val:"+val+" ");
+          if(next != null ){
+              str.append("next:"+next.val);
+          }
            return str.toString();
        }
    }
